@@ -85,6 +85,8 @@ exports.delete = async(rl) => {
 
 
 // Funcionalidad play
+
+sdvsv
 exports.play = async(rl) => {
     let allIdQuizes = await Quiz.findAll({ attributes: ["id"], raw: true }); // Obtener TODOS los ids de quizes disponibles
     let notResolved = allIdQuizes.sort(() => Math.random() - 0.5); // Array aleatorio de Ids de quizes NO resueltos
