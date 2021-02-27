@@ -3,7 +3,9 @@
     "author": "ging-moocs",
     "license": "GNU",
     "version": "0.0.0",
-    "engines": { "node": "12.16" },
+    "engines": {
+        "node": "12.16"
+    },
     "info": {
         "githubURL": "ging-moocs/MOOC_node_mod3-bbdd_entrega",
         "serverUrl": "https://autocorector.dit.upm.es/",
