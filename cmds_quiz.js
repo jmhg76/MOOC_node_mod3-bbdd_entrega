@@ -85,8 +85,6 @@ exports.delete = async(rl) => {
 
 
 // Funcionalidad play
-
-sdvsv
 exports.play = async(rl) => {
     let allIdQuizes = await Quiz.findAll({ attributes: ["id"], raw: true }); // Obtener TODOS los ids de quizes disponibles
     let notResolved = allIdQuizes.sort(() => Math.random() - 0.5); // Array aleatorio de Ids de quizes NO resueltos
@@ -123,48 +121,3 @@ exports.play = async(rl) => {
     // DEBUG Estadística final del juego
     // DEBUG rl.log(`  Has jugado con ${countQuizesResolved} quizes de ${countAllQuizes} disponibles`);
 }
-
-/*
-
-// Funcionalidad play
-exports.play = async(rl) => {
-    let count = await Quiz.count(); // Obtener el número de quizes
-    let resolved = []; // Ids de quizes resueltos
-    const whereOpt = { // Condicion de un quiz no utilizado
-        'id': {
-            [Sequelize.Op.notIn]: resolved
-        }
-    };
-    let wrong = false; // Estado de equivocación al responder ... mientras sea false seguimos jugamos
-
-    // Jugamos mientras haya quizes disponibles o no nos equivoquemos
-    while (resolved.length < count && !wrong) {
-
-        rl.log(`  Jugando con ${count} quizes disponibles y ${resolved.length} utilizados`);
-
-        // Buscamos un quiz no utilizado con la condición de quiz no utilizado
-        let quiz = await Quiz.findOne({ where: whereOpt });
-
-        // Vewmos que sale --- sólo en desarrollo
-        rl.log(`${quiz.id} ${quiz.question} ${quiz.answer}`);
-
-        // Solicitamos la respuesta
-        let answered = await rl.questionP(quiz.question);
-        if (answered.toLowerCase().trim() === quiz.answer.toLowerCase().trim()) {
-            rl.log(`  The answer "${answered}" is right!`);
-            // Anotamos el id del quiz usado
-            resolved.push(quiz.id);
-        } else {
-            rl.log(`  The answer "${answered}" is wrong!`);
-            wrong = true; // Nos hemos equivocado ... el juego para antes de completarlo
-        }
-    }
-
-    // Estadística final del juego
-    rl.log(`  Score ${resolved.length}`);
-
-    // DEBUG Estadística final del juego
-    rl.log(`  Has jugado con ${resolved.length} quizes de ${count} disponibles`);
-}
-
-*/
