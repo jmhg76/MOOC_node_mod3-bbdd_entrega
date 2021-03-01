@@ -16,7 +16,8 @@ exports.help = (rl) =>
     > tq | qt | t    ## quiz: test (play)
     > uq | qu        ## quiz: update
     > dq | qd        ## quiz: delete
-    > p  | pg        ## quiz: play game // Funcionalidad Play
+    > p  | pg        ## quiz: play game // Funcionalidad play
+    > ls             ## quiz: scores    // Funcionalidad scores
     >
     > lf | fl | f    ## favourites: list all
     > cf | fc        ## favourite: create
